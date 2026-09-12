@@ -1,121 +1,104 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useMemo, useState } from 'react'
+import LayerMenu from './components/LayerMenu'
+import MapView from './components/MapView'
+import StatsPanel from './components/StatsPanel'
+import Timeline from './components/Timeline'
+import {
+  filterDatasetByYear,
+  getAllDatasets,
+  getTimeline,
+  type LayerId,
+} from './utils/dataLoader'
+import { ALL_LAYER_IDS } from './utils/mapConfig'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const timeline = getTimeline()
+  const [selectedYear, setSelectedYear] = useState(
+    timeline.at(-1)?.year ?? new Date().getFullYear(),
+  )
+  const [activeLayers, setActiveLayers] = useState<Set<LayerId>>(
+    () => new Set(ALL_LAYER_IDS),
+  )
+
+  const filteredDatasets = useMemo(() => {
+    const datasets = getAllDatasets()
+
+    return Object.fromEntries(
+      ALL_LAYER_IDS.map((layerId) => [
+        layerId,
+        filterDatasetByYear(datasets[layerId], selectedYear),
+      ]),
+    ) as ReturnType<typeof getAllDatasets>
+  }, [selectedYear])
+
+  const toggleLayer = (layerId: LayerId) => {
+    setActiveLayers((currentLayers) => {
+      const nextLayers = new Set(currentLayers)
+
+      if (nextLayers.has(layerId)) {
+        nextLayers.delete(layerId)
+      } else {
+        nextLayers.add(layerId)
+      }
+
+      return nextLayers
+    })
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="app-shell">
+      <header className="app-header">
+        <div className="brand-mark" aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+        <div className="brand-copy">
+          <p className="eyebrow">Observatorio territorial</p>
+          <h1>Nicaragua en datos</h1>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        <div className="data-badge">
+          <span className="data-badge__dot" />
+          Datos simulados
+        </div>
+      </header>
 
-      <div className="ticks"></div>
+      <main className="dashboard">
+        <aside className="control-panel" aria-label="Controles del mapa">
+          <div className="panel-intro">
+            <p className="eyebrow">Explorador geográfico</p>
+            <h2>Dinámicas del territorio</h2>
+            <p>
+              Compara indicadores ambientales y sociales a través del tiempo.
+            </p>
+          </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <LayerMenu
+            activeLayers={activeLayers}
+            onToggleLayer={toggleLayer}
+          />
+          <StatsPanel
+            activeLayers={activeLayers}
+            datasets={filteredDatasets}
+            selectedYear={selectedYear}
+          />
+        </aside>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        <section className="map-workspace" aria-label="Visualización geográfica">
+          <MapView
+            activeLayers={activeLayers}
+            datasets={filteredDatasets}
+            selectedYear={selectedYear}
+          />
+          <Timeline
+            entries={timeline}
+            selectedYear={selectedYear}
+            onYearChange={setSelectedYear}
+          />
+        </section>
+      </main>
+    </div>
   )
 }
 
