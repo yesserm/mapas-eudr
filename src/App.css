@@ -10,6 +10,10 @@
   .eyebrow { @apply m-0 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-emerald-700; }
   .data-badge { @apply ml-auto flex items-center gap-2 rounded-full border border-emerald-900/10 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm backdrop-blur; }
   .data-badge__dot { @apply h-2 w-2 rounded-full bg-amber-400 ring-4 ring-amber-200/70; }
+  .view-tabs { @apply ml-auto flex rounded-xl border border-emerald-950/10 bg-white/60 p-1 shadow-sm; }
+  .view-tabs button { @apply rounded-lg border-0 bg-transparent px-3 py-2 text-xs font-semibold text-slate-500 transition hover:text-ink; }
+  .view-tabs button.is-active { @apply bg-forest text-white shadow-md shadow-emerald-950/20; }
+  .view-tabs + .data-badge { @apply ml-0; }
   .dashboard { @apply mx-auto grid max-w-[1600px] gap-4 px-4 pb-6 sm:px-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:px-10; }
   .control-panel { @apply order-2 overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/90 shadow-panel backdrop-blur lg:order-1; }
   .panel-intro { @apply border-b border-slate-200/80 px-6 py-6; background: radial-gradient(circle at 92% 5%, rgba(74, 181, 131, 0.2), transparent 35%), linear-gradient(145deg, #f9fbf7, #eef5ef); }
@@ -70,12 +74,60 @@
   .year-labels span { @apply text-[0.62rem] font-semibold text-slate-400 transition-colors sm:text-xs; }
   .year-labels .is-current { @apply font-bold text-emerald-700; }
 
+  .admin-shell { @apply mx-auto max-w-[1600px] px-4 pb-8 sm:px-6 lg:px-10; }
+  .admin-heading { @apply mb-4 flex flex-col gap-4 rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-panel backdrop-blur sm:p-7 lg:flex-row lg:items-center lg:justify-between; }
+  .admin-heading h2 { @apply mb-1 mt-1 text-2xl font-semibold tracking-[-0.04em] sm:text-3xl; }
+  .admin-heading > div > p:last-child { @apply m-0 text-sm text-slate-500; }
+  .admin-actions { @apply flex flex-wrap gap-2; }
+  .button-primary, .button-secondary, .button-danger { @apply rounded-xl border px-4 py-2.5 text-xs font-bold transition focus:outline-none focus:ring-4; }
+  .button-primary { @apply border-forest bg-forest text-white shadow-lg shadow-emerald-950/20 hover:bg-emerald-800 focus:ring-emerald-200; }
+  .button-secondary { @apply border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-ink focus:ring-slate-200; }
+  .button-danger { @apply border-red-100 bg-red-50 text-red-600 hover:border-red-200 hover:bg-red-100 focus:ring-red-100; }
+  .admin-notice { @apply mb-4 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800; }
+  .admin-notice--error { @apply border-red-200 bg-red-50 text-red-700; }
+  .admin-grid { @apply grid gap-4 xl:grid-cols-[minmax(360px,0.72fr)_minmax(560px,1.28fr)]; }
+  .admin-card { @apply overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/90 shadow-panel backdrop-blur; }
+  .admin-card__header { @apply flex items-center justify-between border-b border-slate-200/80 px-5 py-5 sm:px-6; }
+  .admin-card__header h3 { @apply m-0 mt-1 text-xl font-semibold tracking-[-0.03em]; }
+  .admin-card__header > strong { @apply flex h-10 min-w-10 items-center justify-center rounded-xl bg-mint px-3 text-sm text-emerald-800; }
+  .editing-badge { @apply rounded-full bg-amber-100 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-wider text-amber-700; }
+  .record-filters { @apply grid grid-cols-2 gap-2 border-b border-slate-200/80 p-4 sm:p-5; }
+  .record-filters input { @apply col-span-2; }
+  .record-filters select, .record-filters input, .point-form select, .point-form input { @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 disabled:cursor-not-allowed disabled:bg-slate-100; }
+  .record-list { @apply max-h-[610px] min-h-56 overflow-y-auto p-3 sm:p-4; }
+  .record-row { @apply grid grid-cols-[8px_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 rounded-2xl border border-transparent p-3 transition hover:border-slate-200 hover:bg-slate-50; }
+  .record-row.is-editing { @apply border-emerald-200 bg-emerald-50/70; }
+  .record-color { @apply row-span-2 h-10 w-2 rounded-full; }
+  .record-row > div:nth-of-type(1) { @apply min-w-0; }
+  .record-row > div:nth-of-type(1) strong { @apply block truncate text-sm font-semibold text-ink; }
+  .record-row > div:nth-of-type(1) span { @apply block truncate text-[0.68rem] text-slate-400; }
+  .record-row > b { @apply text-sm text-slate-600; }
+  .record-buttons { @apply col-span-2 col-start-2 flex gap-3; }
+  .record-buttons button { @apply border-0 bg-transparent p-0 text-[0.68rem] font-bold text-emerald-700 hover:underline; }
+  .record-buttons button:last-child { @apply text-red-500; }
+  .record-empty { @apply flex min-h-52 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 text-sm text-slate-400; }
+  .point-form { @apply p-5 sm:p-6; }
+  .form-grid { @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3; }
+  .form-grid label { @apply block; }
+  .form-grid label > span { @apply mb-1.5 block text-[0.68rem] font-bold uppercase tracking-wider text-slate-500; }
+  .form-value { @apply sm:col-span-2 lg:col-span-1; }
+  .coordinate-picker { @apply relative mt-5 min-h-[310px] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100; }
+  .coordinate-map { @apply absolute inset-0; }
+  .coordinate-help { @apply pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-white/70 bg-white/90 px-3 py-2 text-[0.65rem] font-semibold text-slate-600 shadow-lg backdrop-blur; }
+  .coordinate-help span { @apply flex h-5 w-5 items-center justify-center rounded-full bg-forest text-white; }
+  .form-error { @apply mb-0 mt-4 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-700; }
+  .form-actions { @apply mt-5 flex justify-end gap-2; }
+
 .maplibregl-ctrl-top-right { top: 74px; right: 10px; }
 .maplibregl-ctrl-group { overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.75); border-radius: 12px; box-shadow: 0 8px 24px rgba(23, 37, 31, 0.14) !important; }
 .maplibregl-ctrl-group button { width: 34px; height: 34px; }
 .maplibregl-ctrl-attrib { font-size: 9px; }
 
 @media (max-width: 639px) {
+  .app-header { flex-wrap: wrap; }
+  .view-tabs { order: 3; width: 100%; }
+  .view-tabs button { flex: 1; }
+  .data-badge { font-size: 0; padding: 0.65rem; }
   .map-card { min-height: 460px; height: 62vh; }
   .map-legend { right: 1rem; justify-content: center; }
   .map-legend i { flex: 1; max-width: 5rem; }
