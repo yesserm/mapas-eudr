@@ -187,6 +187,12 @@ function AdminData({
     try {
       const dataset = parseGeoJson(JSON.parse(await file.text()))
       if (
+        selectedLayer === 'riesgo' &&
+        dataset.features.some((feature) => feature.properties.value > 100)
+      ) {
+        throw new Error('Los índices de riesgo importados no pueden superar 100.')
+      }
+      if (
         !window.confirm(
           `La importación reemplazará los ${datasets[selectedLayer].features.length} puntos de ${LAYER_CONFIG[selectedLayer].shortLabel}. ¿Continuar?`,
         )

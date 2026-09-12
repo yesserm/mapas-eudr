@@ -20,6 +20,8 @@ export interface LayerVisualConfig {
   description: string
   unit: string
   color: string
+  radiusPixels: number
+  intensity: number
   colorRange: [number, number, number, number][]
 }
 
@@ -36,6 +38,8 @@ export const LAYER_CONFIG: Record<LayerId, LayerVisualConfig> = {
     description: 'Movilidad humana asociada a eventos climáticos.',
     unit: 'personas',
     color: '#ef6a5b',
+    radiusPixels: 95,
+    intensity: 1.7,
     colorRange: [
       [255, 238, 220, 0],
       [253, 190, 143, 110],
@@ -50,6 +54,8 @@ export const LAYER_CONFIG: Record<LayerId, LayerVisualConfig> = {
     description: 'Hectáreas recuperadas mediante iniciativas locales.',
     unit: 'ha',
     color: '#34a878',
+    radiusPixels: 88,
+    intensity: 1.55,
     colorRange: [
       [230, 248, 227, 0],
       [163, 222, 176, 110],
@@ -64,6 +70,8 @@ export const LAYER_CONFIG: Record<LayerId, LayerVisualConfig> = {
     description: 'Índice compuesto de exposición y vulnerabilidad.',
     unit: 'índice',
     color: '#7c68d6',
+    radiusPixels: 105,
+    intensity: 1.45,
     colorRange: [
       [239, 237, 255, 0],
       [194, 184, 241, 110],

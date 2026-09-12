@@ -20,11 +20,11 @@ export interface PointDraft {
 }
 
 interface StoredDatasets {
-  version: 1
+  version: 2
   datasets: DatasetState
 }
 
-const STORAGE_KEY = 'nicaragua-map-datasets-v1'
+const STORAGE_KEY = 'nicaragua-map-datasets-v2'
 const VALID_LAYERS: LayerId[] = ['desplazados', 'reforestados', 'riesgo']
 
 function cloneDataset(dataset: MapDataset): MapDataset {
@@ -54,12 +54,19 @@ function isValidFeature(value: unknown): value is MapFeature {
       Array.isArray(coordinates) &&
       coordinates.length === 2 &&
       coordinates.every(Number.isFinite) &&
+      coordinates[0] >= -88.2 &&
+      coordinates[0] <= -81.2 &&
+      coordinates[1] >= 10.4 &&
+      coordinates[1] <= 15.4 &&
       properties &&
       typeof properties.id === 'string' &&
       typeof properties.departamento === 'string' &&
       typeof properties.municipio === 'string' &&
       Number.isInteger(properties.year) &&
-      Number.isFinite(properties.value),
+      properties.year >= 2019 &&
+      properties.year <= 2024 &&
+      Number.isFinite(properties.value) &&
+      properties.value > 0,
   )
 }
 
@@ -107,7 +114,7 @@ export function loadStoredDatasets(): DatasetState {
     if (!serialized) return getInitialDatasets()
 
     const stored = JSON.parse(serialized) as Partial<StoredDatasets>
-    return stored.version === 1 && isDatasetState(stored.datasets)
+    return stored.version === 2 && isDatasetState(stored.datasets)
       ? stored.datasets
       : getInitialDatasets()
   } catch {
@@ -117,7 +124,7 @@ export function loadStoredDatasets(): DatasetState {
 
 export function persistDatasets(datasets: DatasetState): boolean {
   try {
-    const stored: StoredDatasets = { version: 1, datasets }
+    const stored: StoredDatasets = { version: 2, datasets }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stored))
     return true
   } catch {
@@ -192,6 +199,8 @@ export function downloadDataset(layerId: LayerId, dataset: MapDataset) {
 
   link.href = url
   link.download = `${layerId}.json`
+  document.body.append(link)
   link.click()
-  URL.revokeObjectURL(url)
+  link.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 0)
 }

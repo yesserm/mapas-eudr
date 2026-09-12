@@ -73,9 +73,10 @@ function MapView({ activeLayers, datasets, selectedYear }: MapViewProps) {
         getPosition: (feature) =>
           feature.geometry.coordinates as [number, number],
         getWeight: (feature) => feature.properties.value,
-        radiusPixels: layerId === 'riesgo' ? 52 : 44,
-        intensity: 1.2,
-        threshold: 0.035,
+        radiusPixels: config.radiusPixels,
+        intensity: config.intensity,
+        threshold: 0.018,
+        opacity: 0.72,
         colorRange: config.colorRange,
       })
     })
