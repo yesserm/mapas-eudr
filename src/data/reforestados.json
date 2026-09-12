@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "properties": { "id": "r-2019-01", "departamento": "Jinotega", "municipio": "Jinotega", "year": 2019, "value": 340 }, "geometry": { "type": "Point", "coordinates": [-86.001, 13.091] } },
+    { "type": "Feature", "properties": { "id": "r-2019-02", "departamento": "Matagalpa", "municipio": "El Tuma-La Dalia", "year": 2019, "value": 275 }, "geometry": { "type": "Point", "coordinates": [-85.737, 13.13] } },
+    { "type": "Feature", "properties": { "id": "r-2019-03", "departamento": "Estelí", "municipio": "Condega", "year": 2019, "value": 190 }, "geometry": { "type": "Point", "coordinates": [-86.398, 13.365] } },
+    { "type": "Feature", "properties": { "id": "r-2019-04", "departamento": "RACCS", "municipio": "Nueva Guinea", "year": 2019, "value": 410 }, "geometry": { "type": "Point", "coordinates": [-84.456, 11.687] } },
+    { "type": "Feature", "properties": { "id": "r-2020-01", "departamento": "Jinotega", "municipio": "San Rafael del Norte", "year": 2020, "value": 430 }, "geometry": { "type": "Point", "coordinates": [-86.111, 13.213] } },
+    { "type": "Feature", "properties": { "id": "r-2020-02", "departamento": "Nueva Segovia", "municipio": "Dipilto", "year": 2020, "value": 240 }, "geometry": { "type": "Point", "coordinates": [-86.507, 13.722] } },
+    { "type": "Feature", "properties": { "id": "r-2020-03", "departamento": "RACCN", "municipio": "Siuna", "year": 2020, "value": 380 }, "geometry": { "type": "Point", "coordinates": [-84.777, 13.733] } },
+    { "type": "Feature", "properties": { "id": "r-2020-04", "departamento": "Chontales", "municipio": "Santo Domingo", "year": 2020, "value": 210 }, "geometry": { "type": "Point", "coordinates": [-85.08, 12.264] } },
+    { "type": "Feature", "properties": { "id": "r-2021-01", "departamento": "Matagalpa", "municipio": "Matiguás", "year": 2021, "value": 520 }, "geometry": { "type": "Point", "coordinates": [-85.46, 12.837] } },
+    { "type": "Feature", "properties": { "id": "r-2021-02", "departamento": "Boaco", "municipio": "Camoapa", "year": 2021, "value": 315 }, "geometry": { "type": "Point", "coordinates": [-85.511, 12.384] } },
+    { "type": "Feature", "properties": { "id": "r-2021-03", "departamento": "Rivas", "municipio": "Moyogalpa", "year": 2021, "value": 180 }, "geometry": { "type": "Point", "coordinates": [-85.698, 11.54] } },
+    { "type": "Feature", "properties": { "id": "r-2021-04", "departamento": "RACCS", "municipio": "El Ayote", "year": 2021, "value": 460 }, "geometry": { "type": "Point", "coordinates": [-85.168, 12.19] } },
+    { "type": "Feature", "properties": { "id": "r-2022-01", "departamento": "Jinotega", "municipio": "El Cuá", "year": 2022, "value": 590 }, "geometry": { "type": "Point", "coordinates": [-85.676, 13.368] } },
+    { "type": "Feature", "properties": { "id": "r-2022-02", "departamento": "RACCN", "municipio": "Bonanza", "year": 2022, "value": 445 }, "geometry": { "type": "Point", "coordinates": [-84.591, 14.029] } },
+    { "type": "Feature", "properties": { "id": "r-2022-03", "departamento": "Chinandega", "municipio": "El Viejo", "year": 2022, "value": 265 }, "geometry": { "type": "Point", "coordinates": [-87.167, 12.663] } },
+    { "type": "Feature", "properties": { "id": "r-2022-04", "departamento": "Carazo", "municipio": "Diriamba", "year": 2022, "value": 230 }, "geometry": { "type": "Point", "coordinates": [-86.238, 11.858] } },
+    { "type": "Feature", "properties": { "id": "r-2023-01", "departamento": "Matagalpa", "municipio": "Rancho Grande", "year": 2023, "value": 650 }, "geometry": { "type": "Point", "coordinates": [-85.56, 13.236] } },
+    { "type": "Feature", "properties": { "id": "r-2023-02", "departamento": "Jinotega", "municipio": "Wiwilí", "year": 2023, "value": 570 }, "geometry": { "type": "Point", "coordinates": [-85.825, 13.626] } },
+    { "type": "Feature", "properties": { "id": "r-2023-03", "departamento": "Río San Juan", "municipio": "El Castillo", "year": 2023, "value": 360 }, "geometry": { "type": "Point", "coordinates": [-84.355, 11.018] } },
+    { "type": "Feature", "properties": { "id": "r-2023-04", "departamento": "RACCS", "municipio": "Kukra Hill", "year": 2023, "value": 485 }, "geometry": { "type": "Point", "coordinates": [-83.75, 12.24] } },
+    { "type": "Feature", "properties": { "id": "r-2024-01", "departamento": "Jinotega", "municipio": "San José de Bocay", "year": 2024, "value": 720 }, "geometry": { "type": "Point", "coordinates": [-85.539, 13.542] } },
+    { "type": "Feature", "properties": { "id": "r-2024-02", "departamento": "Matagalpa", "municipio": "San Ramón", "year": 2024, "value": 610 }, "geometry": { "type": "Point", "coordinates": [-85.838, 12.923] } },
+    { "type": "Feature", "properties": { "id": "r-2024-03", "departamento": "RACCN", "municipio": "Rosita", "year": 2024, "value": 530 }, "geometry": { "type": "Point", "coordinates": [-84.403, 13.926] } },
+    { "type": "Feature", "properties": { "id": "r-2024-04", "departamento": "Río San Juan", "municipio": "San Carlos", "year": 2024, "value": 420 }, "geometry": { "type": "Point", "coordinates": [-84.776, 11.123] } }
+  ]
+}

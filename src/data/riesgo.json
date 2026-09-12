@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "properties": { "id": "c-2019-01", "departamento": "Chinandega", "municipio": "Corinto", "year": 2019, "value": 71 }, "geometry": { "type": "Point", "coordinates": [-87.179, 12.482] } },
+    { "type": "Feature", "properties": { "id": "c-2019-02", "departamento": "Managua", "municipio": "Managua", "year": 2019, "value": 58 }, "geometry": { "type": "Point", "coordinates": [-86.2734, 12.115] } },
+    { "type": "Feature", "properties": { "id": "c-2019-03", "departamento": "RACCN", "municipio": "Waspán", "year": 2019, "value": 77 }, "geometry": { "type": "Point", "coordinates": [-83.97, 14.74] } },
+    { "type": "Feature", "properties": { "id": "c-2019-04", "departamento": "Rivas", "municipio": "San Juan del Sur", "year": 2019, "value": 52 }, "geometry": { "type": "Point", "coordinates": [-85.871, 11.253] } },
+    { "type": "Feature", "properties": { "id": "c-2020-01", "departamento": "RACCN", "municipio": "Puerto Cabezas", "year": 2020, "value": 94 }, "geometry": { "type": "Point", "coordinates": [-83.388, 14.035] } },
+    { "type": "Feature", "properties": { "id": "c-2020-02", "departamento": "RACCS", "municipio": "Bluefields", "year": 2020, "value": 91 }, "geometry": { "type": "Point", "coordinates": [-83.763, 12.011] } },
+    { "type": "Feature", "properties": { "id": "c-2020-03", "departamento": "Jinotega", "municipio": "Wiwilí", "year": 2020, "value": 85 }, "geometry": { "type": "Point", "coordinates": [-85.825, 13.626] } },
+    { "type": "Feature", "properties": { "id": "c-2020-04", "departamento": "Nueva Segovia", "municipio": "Ocotal", "year": 2020, "value": 74 }, "geometry": { "type": "Point", "coordinates": [-86.475, 13.632] } },
+    { "type": "Feature", "properties": { "id": "c-2021-01", "departamento": "Chinandega", "municipio": "El Viejo", "year": 2021, "value": 68 }, "geometry": { "type": "Point", "coordinates": [-87.167, 12.663] } },
+    { "type": "Feature", "properties": { "id": "c-2021-02", "departamento": "León", "municipio": "León", "year": 2021, "value": 64 }, "geometry": { "type": "Point", "coordinates": [-86.878, 12.435] } },
+    { "type": "Feature", "properties": { "id": "c-2021-03", "departamento": "Río San Juan", "municipio": "San Carlos", "year": 2021, "value": 72 }, "geometry": { "type": "Point", "coordinates": [-84.776, 11.123] } },
+    { "type": "Feature", "properties": { "id": "c-2021-04", "departamento": "Madriz", "municipio": "Somoto", "year": 2021, "value": 61 }, "geometry": { "type": "Point", "coordinates": [-86.583, 13.481] } },
+    { "type": "Feature", "properties": { "id": "c-2022-01", "departamento": "RACCS", "municipio": "Laguna de Perlas", "year": 2022, "value": 88 }, "geometry": { "type": "Point", "coordinates": [-83.671, 12.342] } },
+    { "type": "Feature", "properties": { "id": "c-2022-02", "departamento": "Chontales", "municipio": "Juigalpa", "year": 2022, "value": 69 }, "geometry": { "type": "Point", "coordinates": [-85.364, 12.106] } },
+    { "type": "Feature", "properties": { "id": "c-2022-03", "departamento": "Managua", "municipio": "Tipitapa", "year": 2022, "value": 73 }, "geometry": { "type": "Point", "coordinates": [-86.097, 12.197] } },
+    { "type": "Feature", "properties": { "id": "c-2022-04", "departamento": "Granada", "municipio": "Granada", "year": 2022, "value": 65 }, "geometry": { "type": "Point", "coordinates": [-85.956, 11.929] } },
+    { "type": "Feature", "properties": { "id": "c-2023-01", "departamento": "RACCN", "municipio": "Waspán", "year": 2023, "value": 86 }, "geometry": { "type": "Point", "coordinates": [-83.97, 14.74] } },
+    { "type": "Feature", "properties": { "id": "c-2023-02", "departamento": "Jinotega", "municipio": "San José de Bocay", "year": 2023, "value": 79 }, "geometry": { "type": "Point", "coordinates": [-85.539, 13.542] } },
+    { "type": "Feature", "properties": { "id": "c-2023-03", "departamento": "Managua", "municipio": "Ciudad Sandino", "year": 2023, "value": 67 }, "geometry": { "type": "Point", "coordinates": [-86.344, 12.158] } },
+    { "type": "Feature", "properties": { "id": "c-2023-04", "departamento": "Carazo", "municipio": "Diriamba", "year": 2023, "value": 57 }, "geometry": { "type": "Point", "coordinates": [-86.238, 11.858] } },
+    { "type": "Feature", "properties": { "id": "c-2024-01", "departamento": "RACCS", "municipio": "Bluefields", "year": 2024, "value": 89 }, "geometry": { "type": "Point", "coordinates": [-83.763, 12.011] } },
+    { "type": "Feature", "properties": { "id": "c-2024-02", "departamento": "Chinandega", "municipio": "Corinto", "year": 2024, "value": 81 }, "geometry": { "type": "Point", "coordinates": [-87.179, 12.482] } },
+    { "type": "Feature", "properties": { "id": "c-2024-03", "departamento": "Matagalpa", "municipio": "Río Blanco", "year": 2024, "value": 76 }, "geometry": { "type": "Point", "coordinates": [-85.223, 12.934] } },
+    { "type": "Feature", "properties": { "id": "c-2024-04", "departamento": "Río San Juan", "municipio": "El Castillo", "year": 2024, "value": 70 }, "geometry": { "type": "Point", "coordinates": [-84.355, 11.018] } }
+  ]
+}
